@@ -15,6 +15,10 @@ class TasksController extends Controller
      */
     public function index()
     {
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+        }
         // メッセージ一覧を取得
         $tasks = Task::all();
 
